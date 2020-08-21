@@ -11,47 +11,43 @@
 // "aA11" -> 2 # 'a' and '1'
 // "ABBA" -> 2 # 'A' and 'B' each occur twice
 
-const array = [
-  "Hello",
-  "Good Day",
-  "Your Welcome",
-  "hotdog",
-  "hamburgers",
-  "iiiiiii",
-];
-
-const lttrCount = {};
-let lttrArry;
-let max = ["", 0];
-
-function countLttrs(array) {
-  array.forEach((phrase) => {
-    // split each phrase to characters:
-    lttrArry = phrase.toLowerCase().split("");
-    // count the letters and add to an object:
-    lttrArry.forEach((char) => {
-      lttrCount[char] = lttrCount[char] + 1 || 1;
-    });
+// make an object al all the letters and their occurrences:
+const countChars = (str) => {
+  const charCount = {};
+  const charArry = str.toLowerCase().split("");
+  charArry.forEach((char) => {
+    charCount[char] = charCount[char] + 1 || 1;
   });
-  delete lttrCount[" "];
-  return lttrCount;
-}
+  return charCount;
+};
 
-console.log(countLttrs(array));
-
-for (const [lttr, count] of Object.entries(lttrCount)) {
-  max[1] === count && max.push(lttr);
-  max[1] < count && (max[0] = lttr) && (max[1] = count);
-  console.log(max);
-}
-max.length === 2 &&
-  console.log(`The letter that appears the most is "${max[0]}"`);
-if (max.length > 2) {
-  let maxLttrs = [max[0]];
-
-  for (let j = 2; j < max.length; j++) {
-    maxLttrs.push(max[j]);
-    console.log(maxLttrs);
+// creat an object of all chars that repeat more then once and their occurrences:
+const duplicateCount = (str) => {
+  const repeatCharObj = {};
+  const countCharsObj = countChars(str);
+  for (const [char, count] of Object.entries(countCharsObj)) {
+    if (count > 1) repeatCharObj[char] = count;
   }
-  console.log(`The letters that appear the most are ${maxLttrs}`);
-}
+  return repeatCharObj;
+};
+
+// print output depending on the results:
+const printResult = (str) => {
+  const results = duplicateCount(str);
+  if (Object.values(results).length === 0) {
+    console.log("0 # no characters repeat more than once");
+  } else {
+    console.log(
+      `${Object.values(results).length} # characters repeat more than once:`,
+    );
+    console.table(results);
+  }
+};
+
+printResult("abcde");
+printResult("aabbcde");
+printResult("aabBcde");
+printResult("indivisibility");
+printResult("Indivisibilities");
+printResult("aA11");
+printResult("ABBA");
