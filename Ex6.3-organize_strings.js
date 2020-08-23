@@ -15,7 +15,7 @@ const longest = (s1, s2) => {
   const joinedStr = s1.concat(s2);
   let resultStr = [];
   for (let char of joinedStr) {
-    if (!resultStr.includes(char)) resultStr = resultStr.concat(char);
+    !resultStr.includes(char) && (resultStr = resultStr.concat(char));
   }
   return resultStr.sort().join("");
 };

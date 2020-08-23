@@ -40,7 +40,7 @@ const printResult = (str) => {
     console.log(
       `${Object.values(results).length} # characters repeat more than once:`,
     );
-    console.table(results);
+    console.log(results);
   }
 };
 

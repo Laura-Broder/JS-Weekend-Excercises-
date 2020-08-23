@@ -9,7 +9,10 @@
 const rgxLowerCase = /(-|_)[a-z]/gi;
 const rgxDashUnderscore = /(-|_)/g;
 const toCamelCase = (str) => {
-  let newStr = str.replace(rgxLowerCase, (str) => str.toUpperCase());
+  let newStr = str.replace(rgxLowerCase, (str) => {
+    // console.log(str);
+    return `${str.toUpperCase()}`;
+  });
   newStr = newStr.replace(rgxDashUnderscore, "");
   return newStr;
 };

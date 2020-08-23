@@ -6,12 +6,15 @@
 // Patrick Feeney => P.F
 
 const convertToInit = (name) => {
-    let newName = name.replace(/\s/,'.');
-    const dotIndex = newName.indexOf('.');
-    newName = newName.substring(0,1) + newName.substring(dotIndex,dotIndex +2);;
+  let newName = name.replace(/\s/, ".");
+  const dotIndex = newName.indexOf(".");
+  newName = `${newName.substring(0, 1)}${newName.substring(
+    dotIndex,
+    dotIndex + 2,
+  )}`;
 
-    return newName.toUpperCase();
-}
+  return newName.toUpperCase();
+};
 
 console.log(convertToInit("Sam Harris"));
 console.log(convertToInit("Patrick Feeney"));
