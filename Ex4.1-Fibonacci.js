@@ -7,14 +7,16 @@
 // or this:
 // 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, …
 
-const Fibonacci = (start = 1, stopIndex) => {
+const Fibonacci = (stopIndex, start = 1) => {
   fArray = [start, 1];
   for (i = 2; i < stopIndex; i++) {
     fArray.push(fArray[i - 1] + fArray[i - 2]);
   }
-  console.log(fArray);
+  // console.log(fArray);
   return fArray[stopIndex - 1];
 };
 
-console.log(Fibonacci(1, 12));
-console.log(Fibonacci(0, 13));
+console.log(Fibonacci(12));
+console.log(Fibonacci(12, 0));
+console.log(Fibonacci(13));
+console.log(Fibonacci(13, 0));

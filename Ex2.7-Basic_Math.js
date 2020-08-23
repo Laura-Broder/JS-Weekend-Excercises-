@@ -10,25 +10,22 @@
 // basicOp('/', 49, 7)        // Output: 7
 
 const basicOp = (operation, value1, value2) => {
-  let result = 0;
   switch (operation) {
     case "+":
-      result = value1 + value2;
-      break;
+      return value1 + value2;
     case "-":
-      result = value1 - value2;
-      break;
+      return value1 - value2;
     case "*":
-      result = value1 * value2;
-      break;
+      return value1 * value2;
     case "/":
-      result = value1 / value2;
-      break;
+      return value1 / value2;
+    default:
+      return "the operator is unrecognized.";
   }
-  return result;
 };
 
 console.log(basicOp("+", 4, 7));
 console.log(basicOp("-", 15, 18));
 console.log(basicOp("*", 5, 5));
 console.log(basicOp("/", 49, 7));
+console.log(basicOp(".", 49, 7));

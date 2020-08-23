@@ -8,7 +8,7 @@
 // summation(8) -> 36
 // 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8
 
-const summator = (num) => {
+const summation = (num) => {
   let sum = 0;
   while (num > 0) {
     sum = sum + num;
@@ -17,4 +17,4 @@ const summator = (num) => {
   return sum;
 };
 
-console.log(summator(8));
+console.log(summation(8));

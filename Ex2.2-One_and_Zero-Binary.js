@@ -19,7 +19,7 @@
 const binaryToDecimal = (arr) =>
   arr.reverse().reduceRight((tempSum, num, index) => {
     // console.log(tempSum, num, index);
-    return tempSum + num * Math.pow(2, index);
+    return tempSum + num * 2 ** index;
   }, 0);
 
 console.log(binaryToDecimal([0, 0, 0, 1]));

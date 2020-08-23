@@ -14,9 +14,7 @@
 
 const findNextSquare = (n) => {
   const nSqrt = Math.sqrt(n);
-  if (Number.isInteger(nSqrt)) {
-    return Math.pow(nSqrt + 1, 2);
-  } else return -1;
+  return Number.isInteger(nSqrt) ? Math.pow(nSqrt + 1, 2) : -1;
 };
 
 console.log(findNextSquare(121));
